@@ -2,8 +2,11 @@
 import requests
 import scrapy
 import xlwt
+import time
+from time import sleep
 from lxml import etree
 
+time sleep(1)
 
 class LpSpider(scrapy.Spider):
     name = 'LP'
@@ -149,15 +152,5 @@ class LpSpider(scrapy.Spider):
         table_title = ['工作标题', '薪资', '地区', '学历', '经验', '公司']
         for c in range(len(table_title)):
             sheet1.write(0, c, table_title[c], style)
-        # print(data_list)
-        for x in range(len(allinfo)):
-            for y in range(len(allinfo[x])):
-                sheet1.write(x + 1, y, str(allinfo[x][y]), style)
-        f.save(r'./猎聘新媒体运营.xls')
-        response = scrapy.Request('https://www.liepin.com', headers=headers, callback=self.parse)
-        # response.meta['hao'] = hao  # Request.meta中的特殊关键字，其中的传参方法
-        yield response
 
-    def parse(self, response):
-        pass
 
