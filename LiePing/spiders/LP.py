@@ -2,11 +2,10 @@
 import requests
 import scrapy
 import xlwt
-import time
-from time import sleep
+
 from lxml import etree
 
-time sleep(1)
+
 
 class LpSpider(scrapy.Spider):
     name = 'LP'
@@ -152,5 +151,189 @@ class LpSpider(scrapy.Spider):
         table_title = ['工作标题', '薪资', '地区', '学历', '经验', '公司']
         for c in range(len(table_title)):
             sheet1.write(0, c, table_title[c], style)
+
+def stringListParser(categories):
+    result = []
+    for category in categories:
+        category = category.replace('\r', '').replace('\n', '').replace('\t', '').replace('\xa0', '')
+        result.append(category)
+    return result
+
+
+def minSalaryParser(salayString):
+    if salayString == None:
+        return 0
+
+    if salayString.find('-') >= 0:
+        temp = re.split("/|-", salayString)
+        number = float(temp[0])
+        unit = re.sub('\d+', '', temp[1]).replace('.', '')
+        every = temp[2]
+        if unit == '千':
+            number *= 1000;
+        elif unit == '万':
+            number *= 10000;
+        time = 1
+        if every == '天':
+            time = 365;
+        elif every == '月':
+            time = 12
+        elif every == '年':
+            time = 1
+        return int(time * number);
+    elif salayString.find('以下') >= 0:
+        return 0
+    else:
+
+        temp = re.split("/|-", salayString)
+        number = float(re.findall(r'-?\d+\.?\d*e?-?\d*?', temp[0])[0])
+        every = temp[1]
+        unit = re.sub('\d+', '', temp[0]).replace('.', '')
+        if unit == '千':
+            number *= 1000
+        elif unit == '万':
+            number *= 10000
+        elif unit == '元':
+            number *= 1
+        time = 1
+        if every == '天':
+            time = 365
+        elif every == '月':
+            time = 12
+        elif every == '年':
+            time = 1
+        return int(time * number)
+
+
+def maxSalaryParser(salayString):
+    if salayString == None:
+        return 0
+    print(salayString)
+    if salayString.find('-') >= 0:
+        temp = re.split("/|-", salayString)
+        number = float(re.findall(r'-?\d+\.?\d*e?-?\d*?', temp[1])[0])
+        unit = re.sub('\d+', '', temp[1]).replace('.', '')
+        every = temp[2]
+        if unit == '千':
+            number *= 1000
+        elif unit == '万':
+            number *= 10000
+        elif unit == '元':
+            number *= 1
+        time = 1
+        if every == '天':
+            time = 365
+        elif every == '月':
+            time = 12
+        elif every == '年':
+            time = 1
+        return int(time * number)
+    elif salayString.find('以下') >= 0:
+        temp = re.split("/|-", salayString.replace('以下', ''))
+        number = float(re.findall(r'-?\d+\.?\d*e?-?\d*?', temp[0])[0])
+        every = temp[1]
+        unit = re.sub('\d+', '', temp[0]).replace('.', '')
+        if unit == '千':
+            number *= 1000
+        elif unit == '万':
+            number *= 10000
+        elif unit == '元':
+            number *= 1
+        time = 1
+        if every == '天':
+            time = 365
+        elif every == '月':
+            time = 12
+        elif every == '年':
+            time = 1
+        return int(time * number)
+    else:
+        temp = re.split("/|-", salayString)
+        number = float(re.findall(r'-?\d+\.?\d*e?-?\d*?', temp[0])[0])
+        every = temp[1]
+        unit = re.sub('\d+', '', temp[0]).replace('.', '')
+        if unit == '千':
+            number *= 1000
+        elif unit == '万':
+            number *= 10000
+        elif unit == '元':
+            number *= 1
+        time = 1
+        if every == '天':
+            time = 365
+        elif every == '月':
+            time = 12
+        elif every == '年':
+            time = 1
+        return int(time * number)
+
+
+def experienceYearParser(features):
+    experience_str = ''
+    for feature in features:
+        if feature.find('经验') >= 0:
+            experience_str = feature
+            break
+
+    print(experience_str)
+
+    if experience_str.find('无工作经验') >= 0:
+        return 0
+    elif experience_str.find('-')>=0:
+        return experience_str.split('-')[1].replace('年经验', '')
+    else:
+        return experience_str.replace('年经验', '')
+    # return int(re.findall(r'-?\d+\.?\d*e?-?\d*?', experience_str)[0])
+
+
+def educationNeededParser(features):
+    for feature in features:
+        if feature.find('本科') >= 0:
+            return feature
+        if feature.find('大专') >= 0:
+            return feature
+        if feature.find('中专') >= 0:
+            return feature
+        if feature.find('中技') >= 0:
+            return feature
+        if feature.find('高中') >= 0:
+            return feature
+        if feature.find('初中及以下') >= 0:
+            return feature
+        if feature.find('士') >= 0:
+            return feature
+    return ''
+
+
+def publishDateParser(features):
+    publish_date_str = ''
+    for feature in features:
+        if feature.find('发布') >= 0:
+            publish_date_str = feature
+            break
+
+    return '2019-' + publish_date_str.replace('发布', '')
+
+
+def numberOfPeopleParser(features):
+    number_of_peopel_str = ''
+    for feature in features:
+        if feature.find('人') >= 0 and feature.find('招') >= 0:
+            number_of_peopel_str = feature
+            break
+
+    if number_of_peopel_str.find('招若干人') >= 0:
+        return 0
+
+    return int(re.findall("\d+", number_of_peopel_str)[0])
+
+#
+# def province(features):
+#
+#
+# def city(features):
+#
+#
+# def district(features):
 
 
