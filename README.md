@@ -16,7 +16,7 @@
 # 挖掘Query参数
  Query参数包括：1. Jobtitle 职称 2. Salary 工资 3. Area 地区 4.  AcademicDegree 学历 5.Experience 经验 6.Company 公司
 
-||1.薪资|2.地区|3.学历|4.经验|5.公司名称|6.工作标题|
+|1.薪资|2.地区|3.学历|4.经验|5.公司名称|6.工作标题|
 |---|-------|------|-----------|-------|----------------|---------------------------------------------|-----------------------------------------|
 | 0 | 10-15k·12薪|上海-徐泾 |本科及以上 | 3-5年 | 上海麦巢农业科技发展有限公司 |新媒体运营总监  | 
 ```def start_requests(self):
@@ -51,7 +51,11 @@
                 allinfo.append([Jobtitle, Salary[0], Area[0], AcademicDegree[0], Experience[0], Company[0]])
 ```
 # 思路方法及具体执行
-
+1. 先是确定好我要解决的问题——“老一线城市”和新一线代表城市中的新媒体运营职业详情
+2. 选取猎聘网为数据挖掘——www.liepin.com
+3.先用request加xpath 写 
+3. [先是用scrapy框架爬取相关的上海数据分析师职位的页面链接和首页概况的年龄、薪资等基本信息](https://gitee.com/he1mo/Web-Mining_20Spring_Final/tree/master)
+4. [然后用scrapy框架将上一步的各个职位招聘的详情页信息爬取形成excel表格](https://gitee.com/he1mo/Web-Mining_20Spring_Final/blob/master/%E7%8C%8E%E8%81%98%E6%B7%B1%E5%9C%B3%E6%96%B0%E5%AA%92%E4%BD%93%E8%81%8C%E4%BD%8D%E4%BF%A1%E6%81%AF.xlsx)
 
 # 心得总结及感谢
 
