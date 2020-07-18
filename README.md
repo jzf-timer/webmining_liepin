@@ -59,7 +59,7 @@
             后面选择scrapy框架 是为了可以更好地将老一线城市 北上广深和新一线城市中的代表城市重庆中新媒体运营人员的职业信息
  8.单页数据：
  
-![输入图片说明] (https://upload-images.jianshu.io/upload_images/9443754-54a2887d5acb2fe3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![输入图片说明] (https://upload-images.jianshu.io/upload_images/9443754-fd0ef5ec3b0ff65a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
 # 心得总结及感谢
 
