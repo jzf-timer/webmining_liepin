@@ -97,9 +97,8 @@
 特别感谢中大南方[廖汉腾主任](https://www.baidu.com/link?url=a1iZrLywMyppofbh53HPSWH5c3pWyxrV2TaVnnC1U8XdhGtcXHNH-E3grALR5bLAzNQyBnsd-r0DoTahxBgqGK&wd=&eqid=8b1070bf001a044f000000065f12d982)与 **许智超** 老师在这个学期对我们的Web数据挖掘课程教学指导。由于上半学期疫情的影响，本课程结合线上+线下的课程完成教学学习，老师们的耐心讲解让我掌握到了数据挖掘的技术，也认识到了数据分析师的思维方式，这将对于我们日后做有关数据挖掘、数据分析的相关工作、任务时，带来很大的帮助！！
 
 >参考文档:
-[初窥Scrapy](https://scrapy-chs.readthedocs.io/zh_CN/latest/intro/overview.html)   
+[初窥Scrapy](https://scrapy-chs.readthedocs.io/zh_CN/latest/intro/overview.html)  [scrapinghub部署教程](https://blog.csdn.net/zjkpy_5/article/details/86646204)   [《Learning Scrapy》（中文版）第6章 ](https://www.jianshu.com/p/441fa74d7aad)  
 
-[scrapinghub部署教程]https://blog.csdn.net/zjkpy_5/article/details/86646204  这是我接触那么scrapinghub部署教程中 信息详细 而且 有一些坑 以及解决方法都有明确指出  
-
-[《Learning Scrapy》（中文版）第6章 ](https://www.jianshu.com/p/441fa74d7aad)  初学者必看  
+ 
+  
 
