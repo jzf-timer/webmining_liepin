@@ -59,19 +59,35 @@
 
 5. [然后用scrapy框架爬取相关的城市新媒体运营职位的页面链接和首页概况的年龄、薪资等基本信息](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/spiders/LP.py)  
 
-6. [然后用scrapy框架将上一步的各个职位招聘的详情页信息爬取形成excel表格](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/%E7%8C%8E%E8%81%98%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5.xls)  
+6. [然后用scrapy框架将上一步的各个职位招聘的详情页信息爬取形成excel表格](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/%E7%8C%8E%E8%81%98%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5.xls)    
 
 7.方法选择：初始 使用request模块+xpath 是为了可以爬取现有的新媒体运营职业相关信息 然后构建单页数据和多页数据模板 供后面的scrapy框架代码提供一定基础
             后面选择scrapy框架 是为了可以更好地将老一线城市 北上广深和新一线城市中的代表城市重庆中新媒体运营人员的职业信息  
             
- 8.单页数据：
- 
+8.单页数据：
+单页数据连接：https://github.com/GREGJASON/webmining_liepin/blob/master/20%E6%98%A5_Web%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98_final_%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5_%E5%8D%95%E9%A1%B5.xlsx  
+
+[然后用scrapy框架将上一步的各个职位招聘的详情页信息爬取形成excel表格](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/%E7%8C%8E%E8%81%98%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5.xls)      
+
 ![image.png](https://upload-images.jianshu.io/upload_images/9443754-ff003d34a5bbf1d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
- 
+   
+   
+ 在后续scrapy框架构筑时用的参数 
+        有'edu':      '//div[contains(@class,"job-info")]/p/span[@class="edu"]',
+        '经验':      '//div[contains(@class,"job-info")]/p/span[@class="edu"]/following-sibling::span',
+        '薪水':    '//div[contains(@class,"job-info")]/p/span[@class="text-warning"]', 
+        '时间':    '//div[contains(@class,"job-info")]/p/time/@title', 
+        '职称':    '//div[contains(@class,"job-info")]/h3/a', 
+        '公司地点': '//div[contains(@class,"job-info")]/p/a',
+        '公司名称': '//div[contains(@class,"sojob-item-main")]//p[@class="company-name"]/a',  
+  
+9.
 # 心得总结及感谢
-
-
+感谢刘炜豪 李铮两位同学 在我使用scrapinghub上面提供的帮助
+感谢许智超老师面对我的提问时，可以指点迷津。
 特别感谢中大南方[廖汉腾主任](https://www.baidu.com/link?url=a1iZrLywMyppofbh53HPSWH5c3pWyxrV2TaVnnC1U8XdhGtcXHNH-E3grALR5bLAzNQyBnsd-r0DoTahxBgqGK&wd=&eqid=8b1070bf001a044f000000065f12d982)与 **许智超** 老师在这个学期对我们的Web数据挖掘课程教学指导。由于上半学期疫情的影响，本课程结合线上+线下的课程完成教学学习，老师们的耐心讲解让我掌握到了数据挖掘的技术，也认识到了数据分析师的思维方式，这将对于我们日后做有关数据挖掘、数据分析的相关工作、任务时，带来很大的帮助！！
 
 >参考文档:
 [初窥Scrapy](https://scrapy-chs.readthedocs.io/zh_CN/latest/intro/overview.html)
+[scrapinghub部署教程]https://blog.csdn.net/zjkpy_5/article/details/86646204  这是我接触那么scrapinghub部署教程中 信息详细 而且 有一些坑 以及解决方法都有明确指出
+[《Learning Scrapy》（中文版）第6章 ](https://www.jianshu.com/p/441fa74d7aad)
