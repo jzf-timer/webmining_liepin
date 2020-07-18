@@ -49,17 +49,24 @@
                 allinfo.append([Jobtitle, Salary[0], Area[0], AcademicDegree[0], Experience[0], Company[0]])
 ```
 # 思路方法及具体执行
-1. 先是确定好我要解决的问题——“老一线城市”和新一线代表城市中的新媒体运营职业详情
-2. 选取猎聘网为数据挖掘——www.liepin.com
-3.[先用request加xpath 爬取这个新媒体运营人员的薪资水平和职业详情](https://github.com/GREGJASON/webmining_liepin/blob/master/%E7%BF%BB%E9%A1%B5%E6%95%B0%E6%8D%AE.ipynb)
-4.[用之前0爬取到详情信息形成翻页数据](https://github.com/GREGJASON/webmining_liepin/blob/master/20%E6%98%A5_Web%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98_final_%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5_%E7%BF%BB%E9%A1%B5.xlsx)
-5. [然后用scrapy框架爬取相关的城市新媒体运营职位的页面链接和首页概况的年龄、薪资等基本信息](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/spiders/LP.py)
-6. [然后用scrapy框架将上一步的各个职位招聘的详情页信息爬取形成excel表格](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/%E7%8C%8E%E8%81%98%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5.xls)
+1. 先是确定好我要解决的问题——“老一线城市”和新一线代表城市中的新媒体运营职业详情  
+
+2. 选取猎聘网为数据挖掘——www.liepin.com  
+
+3.[先用request加xpath 爬取这个新媒体运营人员的薪资水平和职业详情](https://github.com/GREGJASON/webmining_liepin/blob/master/%E7%BF%BB%E9%A1%B5%E6%95%B0%E6%8D%AE.ipynb)  
+
+4.[用之前0爬取到详情信息形成翻页数据](https://github.com/GREGJASON/webmining_liepin/blob/master/20%E6%98%A5_Web%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98_final_%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5_%E7%BF%BB%E9%A1%B5.xlsx)  
+
+5. [然后用scrapy框架爬取相关的城市新媒体运营职位的页面链接和首页概况的年龄、薪资等基本信息](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/spiders/LP.py)  
+
+6. [然后用scrapy框架将上一步的各个职位招聘的详情页信息爬取形成excel表格](https://github.com/GREGJASON/webmining_liepin/blob/master/LiePing/%E7%8C%8E%E8%81%98%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5.xls)  
+
 7.方法选择：初始 使用request模块+xpath 是为了可以爬取现有的新媒体运营职业相关信息 然后构建单页数据和多页数据模板 供后面的scrapy框架代码提供一定基础
-            后面选择scrapy框架 是为了可以更好地将老一线城市 北上广深和新一线城市中的代表城市重庆中新媒体运营人员的职业信息
+            后面选择scrapy框架 是为了可以更好地将老一线城市 北上广深和新一线城市中的代表城市重庆中新媒体运营人员的职业信息  
+            
  8.单页数据：
  
-![image.png](https://upload-images.jianshu.io/upload_images/9443754-ff003d34a5bbf1d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/9443754-ff003d34a5bbf1d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
  
 # 心得总结及感谢
 
